@@ -11,7 +11,7 @@ A collection of my personal Houdini Scripts
 
 ## Add parameter comments to camera
 
-Selecting a camera and a node, allows you to select from the parameter list from the node the parameters you want to display on the camera.
+Selecting a camera and a node, gets the node parameters and allows you to select from a list the parameters you want to display on the camera.
 
 Allows to Create, Add and Reset the parameter interface
 
