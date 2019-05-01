@@ -17,8 +17,8 @@ Allows to Create, Add and Reset the parameter interface
 
 The parameters update automatically
 
-![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/parm_camera_ui.png)
-![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/parm_camera.png)
+![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/parms_camera_ui.png)
+![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/parms_camera.png)
 
 ## Import files to sops
 
