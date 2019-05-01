@@ -22,7 +22,7 @@ Imports the files in a path or in the subdirectories given a path and an extensi
 
 ## Principal shader from path
 
-Given a path with the textures, creates a principal shader with all the iamges connected to their respective inputs, returns a message if a image input wast found
+Given a path with the textures, creates a principal shader with all the images connected to their respective inputs, returns a message if a image input wast found
 
 ## Contanct
  [LinkedIn] 
