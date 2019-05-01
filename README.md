@@ -1,5 +1,5 @@
 # Houdini-scripts
-A collection of my personal Houdini Scripts
+A collection of my personal Houdini Scripts, created with a PySide2 UI
 
 ## Scripts
 
