@@ -11,14 +11,14 @@ A collection of my personal Houdini Scripts
 
 ## Add parameter comments to camera
 
-Selecting a camera and a node, allows you to select from the parameter list from the node the parameters you want to display on the camera.
+Selecting a camera and a node, gets the node parameters and allows you to select from a list the parameters you want to display on the camera.
 
 Allows to Create, Add and Reset the parameter interface
 
 The parameters update automatically
 
-![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/parm_camera_ui.png)
-![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/parm_camera.png)
+![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/parms_camera_ui.png)
+![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/parms_camera.png)
 
 ## Import files to sops
 
@@ -28,7 +28,7 @@ Imports the files in a path or in the subdirectories given a path and an extensi
 
 Given a path with the textures, creates a principal shader with all the images connected to their respective inputs, returns a message if a image input wast found
 
-## Contanct
+## Contact
  [LinkedIn] 
  
  [Vimeo]
