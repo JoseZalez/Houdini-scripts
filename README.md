@@ -26,9 +26,13 @@ The parameters update automatically.
 
 Imports the files in a path or in the subdirectories given a path and an extension.
 
+![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/import_files.png)
+
 ## Principal shader from path
 
 Given a path with the textures, creates a principal shader with all the images connected to their respective inputs, returns a message if a image input wast found.
+
+![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/create_shader.png)
 
 ## Contact
  [LinkedIn] 
