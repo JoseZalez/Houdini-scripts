@@ -13,9 +13,11 @@ A collection of my personal Houdini Scripts
 
 Selecting a camera and a node, gets the node parameters and allows you to select from a list the parameters you want to display on the camera.
 
-Allows to Create, Add and Reset the parameter interface
+Allows to Create, Add and Reset the parameter interface.
 
-The parameters update automatically
+With the Add function you can add parameters from different nodes.
+
+The parameters update automatically.
 
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/parms_camera_ui.png)
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/parms_camera.png)
@@ -26,7 +28,7 @@ Imports the files in a path or in the subdirectories given a path and an extensi
 
 ## Principal shader from path
 
-Given a path with the textures, creates a principal shader with all the images connected to their respective inputs, returns a message if a image input wast found
+Given a path with the textures, creates a principal shader with all the images connected to their respective inputs, returns a message if a image input wast found.
 
 ## Contact
  [LinkedIn] 
