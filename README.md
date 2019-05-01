@@ -15,6 +15,10 @@ Selecting a camera and a node, allows you to select from the parameter list from
 
 Allows to Create, Add and Reset the parameter interface
 
+The parameters update automatically
+
+![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/parm_camera_ui.png)
+![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/parm_camera.png)
 
 ## Import files to sops
 
