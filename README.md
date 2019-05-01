@@ -26,6 +26,7 @@ Given a path with the textures, creates a principal shader with all the iamges c
 
 ## Contanct
  [LinkedIn] 
+ 
  [Vimeo]
  
  [LinkedIn]: https://www.linkedin.com/in/jose-gonzalezvfx/
