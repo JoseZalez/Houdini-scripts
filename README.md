@@ -31,7 +31,7 @@ Simply add the code to a custom script on your toolbar, save, open it and CTRL+C
 
 Imports the files in a path or in the subdirectories given a path and an extension.
 
-![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/import_files.png)
+![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/import_files_path.png)
 
 # Principal shader from path
 
