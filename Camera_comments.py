@@ -89,14 +89,32 @@ class UI(QDialog):
         #Iterates for each paramater, adds the name with the value in the dictionary, also adds the name to the list
         filter_word=["Interpolation","Position","Value","Visualization","Control"]
 
+        previousname=""
+
         for parm in all_parms:
-                name=parm.name()
-                long_name=parm.description()
-                if not any(x in long_name for x in filter_word):
-                        if "enable" not in name:
-                                thisdict[str(i)] =  "data+=" + "'"+ long_name +": "+"'"+" + "+ 'str(solver.parm({}).eval())'.format("'"+name+"'") + "+" + "'\\n'"
-                                parmlist.append(long_name)
-                                i+=1
+            name=parm.name()
+            long_name=parm.description()
+            
+            if not any(x in long_name for x in filter_word):
+                if "enable" not in name:
+
+                    if long_name == previousname:
+                    
+                        vectorname=name[:-1]
+                        #print thisdict[str(i-1)]
+                        #thisdict.pop(str(i-1))
+                        del parmlist[-1]
+                        i-=1
+                        thisdict[str(i)] =  "data+=" + "'"+ long_name +": "+"'"+" + "+ 'str(solver.parmTuple({}).eval())'.format("'"+vectorname+"'") + "+" + "'\\n'"
+                        previousname=long_name
+                        long_name+=" (vector) "
+                    else:
+                        thisdict[str(i)] =  "data+=" + "'"+ long_name +": "+"'"+" + "+ 'str(solver.parm({}).eval())'.format("'"+name+"'") + "+" + "'\\n'"
+                        previousname=long_name
+                        
+
+                    parmlist.append(long_name)
+                    i+=1
 
         text = 'data=""' + "\n"+'solver = hou.node({})'.format("'"+self.solver.text()+"'") +"\n"
 
@@ -162,5 +180,5 @@ class UI(QDialog):
 app = QApplication.instance()
 if app is None: 
     app = QApplication(sys.argv)      
-shaderUI = UI()
-shaderUI.show()
+CommentUI = UI()
+CommentUI.show()
