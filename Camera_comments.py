@@ -101,8 +101,6 @@ class UI(QDialog):
                     if long_name == previousname:
                     
                         vectorname=name[:-1]
-                        #print thisdict[str(i-1)]
-                        #thisdict.pop(str(i-1))
                         del parmlist[-1]
                         i-=1
                         thisdict[str(i)] =  "data+=" + "'"+ long_name +": "+"'"+" + "+ 'str(solver.parmTuple({}).eval())'.format("'"+vectorname+"'") + "+" + "'\\n'"
