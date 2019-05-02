@@ -22,7 +22,7 @@ The parameters update automatically.
 
 ## Usage
 
-Simply add it to a custom script on your toolbar, open it and CTRL+C your camera node, CTRL+V on the camera node box on the plugin to paste the path, do the same for the node you want the parameters from.
+Simply add the code to a custom script on your toolbar, save, open it and CTRL+C your camera node, CTRL+V on the camera node box on the plugin to paste the path, do the same for the node you want the parameters from.
 
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/parms_camera_ui.png)
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/parms_camera.png)
