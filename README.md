@@ -4,6 +4,7 @@ A collection of my personal Houdini Scripts, UI created with PySide2.
 ## Scripts
 
 * Add parameter comments to camera
+* Import multiple agent clips
 * Import files
 * Principal shader from path
 
@@ -26,6 +27,20 @@ Simply add the code to a custom script on your toolbar, save, open it and CTRL+C
 
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/parms_camera_ui.png)
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/parms_camera.png)
+
+# Import multiple agent clips
+
+Allows you to import multiple clips to a Agent Clips node selecting them from a list of the path introduced, setting automatically the path and the name.
+
+## Usage
+
+Paste your clip path into the path box and select Import if you want to overwrite older clips or add if oyu want to keep the older ones.
+
+If your animations are in place simply check the box to set the automatically to In-Place
+
+![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/import_clips.png)
+![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/import_clips_list.png)
+![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/import_clips_agentclip.png)
 
 # Import files
 
