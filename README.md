@@ -56,6 +56,8 @@ If you select to convert the clips to In-Place remember to select a *Locomotion 
 
 Imports the files in a path or in the subdirectories given a path and an extension.
 
+*Import as FBX* allows you to import FBX with animation in *SOP* level.
+
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/import_files_path.png)
 
 # Principal shader from path
