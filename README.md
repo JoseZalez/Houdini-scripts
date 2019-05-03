@@ -34,13 +34,11 @@ Allows you to import multiple clips to a Agent Clips node selecting them from a 
 
 ## Usage
 
-Paste your clip path into the path box and select Import if you want to overwrite older clips or add if oyu want to keep the older ones.
+Paste your clip path into the path box and select Import if you want to overwrite older clips or add if you want to keep the older ones.
 
 If your animations are in place simply check the box to set the automatically to In-Place
 
-![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/import_clips.png)
-![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/import_clips_list.png)
-![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/import_clips_agentclip.png)
+![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/import_agent_clip.png)
 
 # Import files
 
