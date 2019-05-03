@@ -94,7 +94,6 @@ class UI(QDialog):
         
         path=self.path()
         file_list = os.listdir(path)
-        
         list_paths=[]
 
         #Gets all the clip paths in the input path
@@ -124,7 +123,6 @@ class UI(QDialog):
         
             name_list.append(name_list_all[j])
 
-
         #Creates a new list with just the clips selected from the user 
         for x in index_list:
         
@@ -148,12 +146,9 @@ class UI(QDialog):
     
         n=0
         j=0
-        
-        nodes = hou.selectedNodes()
-
-        load_clip=nodes[0]
-
         i=0
+        nodes = hou.selectedNodes()
+		load_clip=nodes[0]
         
         tuple_list=self.getlist_paths()
         
@@ -164,12 +159,8 @@ class UI(QDialog):
         if empty != 1: 
 
             clipsparm = load_clip.parm("clips")
-    
             clipsparm.set(len(chosen_clips))
-    
             parms = load_clip.parms()
-            
-    
             
             #Gives to each clip parm a name and the file path, sets it to fbx and convert to in-place if selected in the UI
             for x in parms:
@@ -193,28 +184,19 @@ class UI(QDialog):
         nodes = hou.selectedNodes()
 
         load_clip=nodes[0]
-        
         clipsparm = load_clip.parm("clips")
-
         i=clipsparm.eval()
 
         tuple_list=self.getlist_paths()
-        
         chosen_clips=tuple_list[0]
-        
         name_list = tuple_list[1]
-        
         empty = tuple_list[2]
         
         if empty != 1:
         
             clipsparm = load_clip.parm("clips")
-    
             clipsparm.set(len(chosen_clips)+i)
-    
             parms = load_clip.parms()
-            
-            
             
             for x in parms:
                 if x.name().startswith("name"):
