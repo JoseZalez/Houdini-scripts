@@ -37,22 +37,17 @@ class UI(QDialog):
         inplace_layout.addWidget(self.inplace)
         inplace_layout.setSpacing(10)
 
-        #Set a button to start
+        #Set a button to import
         self.button = QPushButton('Import')
-
-        #Set a button to add
-        self.buttonAdd = QPushButton('Add')
  
         #Add all the layout together
         main_layout.addLayout(filepath_layout, stretch=1)
         main_layout.addLayout(inplace_layout, stretch=1)
-        main_layout.addWidget(self.button)        
-        main_layout.addWidget(self.buttonAdd)
+        main_layout.addWidget(self.button)      
         self.setLayout(main_layout)
         
         #Start the main code
         self.button.clicked.connect(self.main)
-        self.buttonAdd.clicked.connect(self.mainAdd)
 
     def main(self): #Check if the user selected a node and check if its a agent clip node
         
@@ -66,19 +61,7 @@ class UI(QDialog):
         else:
         
             self.importclips()
-            
-    def mainAdd(self): #Check if the user selected a node and check if its a agent clip node
-    
-        nodes = hou.selectedNodes()
-        
-        if not nodes or 'agentclip' not in nodes[0].type().name() :
-
-            hou.ui.displayMessage("Please select a Agent Clip node to add the clips into", buttons=('OK',), severity=hou.severityType.Message, default_choice=0, close_choice=0, title="Select a node",details_expanded=False)
-                
-        else:
-        
-            self.add()
-        
+                    
     def path(self): #Returns the fixed path
 
         path = self.filepath.text()
@@ -141,51 +124,19 @@ class UI(QDialog):
             
         return name_list_all
         
-        
+
     def importclips(self): #Imports the clips into the agent clip node
     
         n=0
         j=0
-        i=0
-        nodes = hou.selectedNodes()
-		load_clip=nodes[0]
-        
-        tuple_list=self.getlist_paths()
-        
-        chosen_clips=tuple_list[0]
-        name_list = tuple_list[1]
-        empty = tuple_list[2]
-        
-        if empty != 1: 
-
-            clipsparm = load_clip.parm("clips")
-            clipsparm.set(len(chosen_clips))
-            parms = load_clip.parms()
-            
-            #Gives to each clip parm a name and the file path, sets it to fbx and convert to in-place if selected in the UI
-            for x in parms:
-                
-                if x.name().startswith("name"):
-                    x.set(name_list[n])
-                    n+=1
-                elif x.name().startswith("file"):
-                    x.set(chosen_clips[j])
-                    j+=1
-                elif x.name().startswith("source"):
-                    x.set(1)
-                elif x.name().startswith("converttoinplace") and self.inplace.isChecked():
-                    x.set(1)
-
-    def add(self): #Same as importclips but without deleting previous clips
-    
-        n=0
-        j=0
+        s=""
 
         nodes = hou.selectedNodes()
 
         load_clip=nodes[0]
         clipsparm = load_clip.parm("clips")
         i=clipsparm.eval()
+        
 
         tuple_list=self.getlist_paths()
         chosen_clips=tuple_list[0]
@@ -195,21 +146,29 @@ class UI(QDialog):
         if empty != 1:
         
             clipsparm = load_clip.parm("clips")
+
+            first_clip = load_clip.parm("name1")
+
+            if not first_clip.eval():
+
+                i=0
+            
             clipsparm.set(len(chosen_clips)+i)
             parms = load_clip.parms()
-            
+
+            #Gives to each clip parm a name and the file path, sets it to fbx and convert to in-place if selected in the UI
             for x in parms:
                 if x.name().startswith("name"):
                     if not x.eval():
-                            x.set(name_list[n])
-                            n+=1
+                        x.set(name_list[n])
+                        n+=1
                 elif x.name().startswith("file"):
                     if not x.eval():
-                            x.set(chosen_clips[j])
-                            j+=1
-                elif x.name().startswith("source"):
+                        x.set(chosen_clips[j])
+                        j+=1
+                elif x.name().startswith("source") and int(x.name()[-1:]) > i:
                     x.set(1)
-                elif x.name().startswith("converttoinplace") and self.inplace.isChecked():
+                elif x.name().startswith("converttoinplace") and self.inplace.isChecked() and int(x.name()[-1:]) > i:
                     x.set(1)
 
 #Starts the script window for the user
