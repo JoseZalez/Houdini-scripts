@@ -1,6 +1,14 @@
 # Houdini-scripts
 A collection of my personal Houdini Scripts, UI created with PySide2.
 
+### Contact
+ [LinkedIn] 
+ 
+ [Vimeo]
+ 
+ [LinkedIn]: https://www.linkedin.com/in/jose-gonzalezvfx/
+ [Vimeo]: https://vimeo.com/josezalez
+ 
 ## Scripts
 
 * Add parameter comments to camera
@@ -52,13 +60,6 @@ Given a path with the textures, creates a principal shader with all the images c
 
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/create_shader.png)
 
-## Contact
- [LinkedIn] 
- 
- [Vimeo]
- 
- [LinkedIn]: https://www.linkedin.com/in/jose-gonzalezvfx/
- [Vimeo]: https://vimeo.com/josezalez
 
 ## License
 
