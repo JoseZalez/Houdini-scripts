@@ -38,11 +38,11 @@ Simply add the code to a custom script on your toolbar, save, open it and CTRL+C
 
 # Import multiple agent clips
 
-Allows you to import multiple clips to an *Agent Clips* node selecting them from a list of the path introduced, setting automatically the path and the name.
+Allows you to import multiple clips to an *Agent Clip* node selecting them from a list of the path introduced, setting automatically the path and the name.
 
 ## Usage
 
-Paste your clip path into the path box and select *Import* to import the selected clips into the *Agent Clips* node, if there are already clips in the node the new ones will be just added at the end.
+Paste your clip path into the path box and select *Import* to import the selected clips into the *Agent Clip* node, if there are already clips in the node the new ones will be just added at the end.
 
 If your animations are in place simply check the box to set the automatically to In-Place.
 
