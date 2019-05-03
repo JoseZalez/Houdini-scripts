@@ -1,5 +1,5 @@
 # Houdini-scripts
-A collection of my personal Houdini Scripts, UI created with PySide2.
+A collection of my personal Houdini Scripts.
 
 ### Contact
  [LinkedIn] 
@@ -22,9 +22,9 @@ A collection of my personal Houdini Scripts, UI created with PySide2.
 
 Selecting a camera and a node, gets the node parameters and allows you to select from a list the parameters you want to display on the camera.
 
-Allows to Create, Add and Reset the parameter interface.
+Allows to *Create*, *Add* and *Reset* the parameter interface.
 
-With the Add function you can add parameters from different nodes.
+With the *Add* function you can add parameters from different nodes.
 
 The parameters update automatically.
 
@@ -38,13 +38,17 @@ Simply add the code to a custom script on your toolbar, save, open it and CTRL+C
 
 # Import multiple agent clips
 
-Allows you to import multiple clips to a Agent Clips node selecting them from a list of the path introduced, setting automatically the path and the name.
+Allows you to import multiple clips to an *Agent Clips* node selecting them from a list of the path introduced, setting automatically the path and the name.
 
 ## Usage
 
-Paste your clip path into the path box and select Import if you want to overwrite older clips or add if you want to keep the older ones.
+Paste your clip path into the path box and select *Import* if you want to overwrite older clips or add if you want to keep the older ones.
 
-If your animations are in place simply check the box to set the automatically to In-Place
+If your animations are in place simply check the box to set the automatically to In-Place.
+
+### Reminder
+
+If you select to convert the clips to In-Place remember to select a *Locomotion Node* in the *Locomotion Settings*.
 
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/import_agent_clip.png)
 
