@@ -129,7 +129,6 @@ class UI(QDialog):
     
         n=0
         j=0
-        s=""
 
         nodes = hou.selectedNodes()
 
