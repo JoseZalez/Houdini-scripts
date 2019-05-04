@@ -44,7 +44,7 @@ Allows you to import multiple clips to an *Agent Clip* node selecting them from 
 
 Paste your clip path into the path box and select *Import* to import the selected clips into the *Agent Clip* node, if there are already clips in the node the new ones will be just added at the end.
 
-If your animations are in place simply check the box to set the automatically to In-Place.
+If your animations are in place simply check the box to set them automatically to In-Place.
 
 ### Reminder
 
