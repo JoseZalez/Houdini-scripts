@@ -134,6 +134,7 @@ class UI(QDialog):
 
         load_clip=nodes[0]
         clipsparm = load_clip.parm("clips")
+
         i=clipsparm.eval()
         
 
@@ -143,16 +144,18 @@ class UI(QDialog):
         empty = tuple_list[2]
         
         if empty != 1:
-        
-            clipsparm = load_clip.parm("clips")
 
-            first_clip = load_clip.parm("name1")
-
-            if not first_clip.eval():
-
+            if clipsparm.eval() == 0:
                 i=0
+            else:
+                first_clip = load_clip.parm("name1")
+
+                if not first_clip.eval():
+
+                    i=0
             
             clipsparm.set(len(chosen_clips)+i)
+
             parms = load_clip.parms()
 
             #Gives to each clip parm a name and the file path, sets it to fbx and convert to in-place if selected in the UI
