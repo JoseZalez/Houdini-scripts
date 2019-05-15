@@ -9,10 +9,10 @@ from PySide2.QtWidgets import QDialog, QApplication, QLineEdit, QLabel, QPushBut
 from PySide2.QtCore import Qt
 
 class UI(QDialog):
-    """"""
+
  
     def __init__(self, parent=None):
-        """Constructor"""
+
         super(UI, self).__init__(parent)
         main_layout = QVBoxLayout()
         self.setWindowTitle("Create shader")
@@ -73,39 +73,41 @@ class UI(QDialog):
                 
                 
                 texture.parm("map").set(texture_path)
+
+                name = files.lower()
                 
-                if "basecolor" in files or "diffuse" in files:
+                if "color" in name or "diff" in name:
                 
                     shader.setInput(1,texture,0)
                     texture.moveToGoodPosition()
                     
                     
-                elif "rough" in files:
+                elif "rough" in name:
                 
                     shader.setInput(6,texture,0)
                     texture.moveToGoodPosition()
                     
-                elif "metal" in files:
+                elif "metal" in name:
                 
                     shader.setInput(9,texture,0)
                     texture.moveToGoodPosition()
             
-                elif "specular" in files:
+                elif "specular" in name or "spec" in name:
                 
                     shader.setInput(10,texture,0)
                     texture.moveToGoodPosition()
                     
-                elif "emi" in files:
+                elif "emis" in name:
                 
                     shader.setInput(27,texture,0)
                     texture.moveToGoodPosition()
                     
-                elif "bump" in files or "normal" in files:
+                elif "bump" in name or "normal" in name:
                 
                     texture.destroy()
                     shader.parm("baseBumpAndNormal_enable").set(True)
                     
-                    if "bump" in files:
+                    if "bump" in name:
                             shader.parm("baseBumpAndNormal_type").set("Bump")
                             shader.parm("baseBump_bumpTexture").set(texture_path)
                             
@@ -113,7 +115,7 @@ class UI(QDialog):
                             shader.parm("baseNormal_texture").set(texture_path)
                         
                     
-                elif "height" in files or "displacement" in files:
+                elif "height" in name or "disp" in name:
                 
                     texture.destroy()
                     shader.parm("dispTex_enable").set(True)
@@ -127,6 +129,7 @@ class UI(QDialog):
                 
             
             shader.moveToGoodPosition()
+            
 
 #Starts the script window for the user
 app = QApplication.instance()
