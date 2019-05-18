@@ -115,7 +115,7 @@ class UI(QDialog):
                             shader.parm("baseNormal_texture").set(texture_path)
                         
                     
-                elif "height" in name or "disp" in name:
+                elif "height" in name or "disp" in name or "depth" in name:
                 
                     texture.destroy()
                     shader.parm("dispTex_enable").set(True)
