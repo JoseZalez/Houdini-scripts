@@ -52,6 +52,14 @@ If you select to convert the clips to In-Place remember to select a *Locomotion 
 
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/import_agent_clip.png)
 
+# Principal shader from path
+
+Given a path with the textures, creates a principal shader with all the images connected to their respective inputs including displacement, bump and normal maps. 
+
+Returns a message if a image input wasnt found.
+
+![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/create_shader.png)
+
 # Import files
 
 Imports the files in a path or in the subdirectories given a path and an extension.
@@ -60,11 +68,7 @@ Imports the files in a path or in the subdirectories given a path and an extensi
 
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/import_files_path.png)
 
-# Principal shader from path
 
-Given a path with the textures, creates a principal shader with all the images connected to their respective inputs, returns a message if a image input wast found.
-
-![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/create_shader.png)
 
 
 ## License
