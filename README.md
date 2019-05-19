@@ -15,6 +15,7 @@ A collection of my personal Houdini Scripts.
 * Import multiple agent clips
 * Import files
 * Principal shader from path
+* Instace based on percentage
 
 
 
@@ -68,8 +69,34 @@ Imports the files in a path or in the subdirectories given a path and an extensi
 
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/import_files_path.png)
 
+# Instace based on percentage
+
+Create a copy to points for a for loop with a Controller with the percentage of the geometry you want to copy
+
+![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/scatter/scatter_4.png)
+![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/scatter/scatter_5.png)
+
+## Usage
+
+With the points where you want to copy the geometry and a for loop, select the geometry you want to copy on the points:
+
+![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/scatter/scatter_1.png)
+
+Then execute the script. It will create a switch node, a controller and a attribute wrangle.
+
+![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/scatter/scatter_2.png)
+
+Connect the attribute wrangle before the forloop, connect the copy to points to the forloop end and finally, drag the forloop begin to the spare input parameter on the switch node.
 
 
+![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/scatter/scatter_3.png)
+
+
+Then simply use the controller to select the percentages you want.
+
+### Reminder
+
+For now please always use percentages that add up to 100% to get the desired results.
 
 ## License
 
