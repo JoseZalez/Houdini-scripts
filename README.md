@@ -20,7 +20,7 @@ A collection of my personal Houdini Scripts.
 
 ### Install
 
-Simply create a new tool in your toolbar and paste the code, save and execute.
+Simply create a new tool in your toolbar, paste the code, save and execute.
 
 # Add parameter comments to camera
 
