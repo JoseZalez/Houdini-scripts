@@ -74,27 +74,27 @@ Imports the files in a path or in the subdirectories given a path and an extensi
 
 # Instace based on percentage
 
-Creates a copy to points and Controller with the percentage of each geometry you want to copy inside a for loop
+Creates a copy to points and Controller with the percentage of each geometry you want to copy inside a foreach loop
 
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/scatter/scatter_preview.png)
 
 ## Usage
 
-With the points where you want to copy the geometry and a for loop, select the geometry you want to copy on the points:
+With the points where you want to copy the geometry and a foreach loop, select the geometry you want to copy on the points:
 
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/scatter/scatter_1.png)
 
-Then execute the script. It will create a switch node, a controller and an attribute wrangle.
+Then execute the script. It will create a *switch* node, a *controller* and an *attribute wrangle*.
 
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/scatter/scatter_2.png)
 
-Connect the attribute wrangle before the forloop, connect the copy to points to the forloop end and finally, drag the forloop begin to the spare input parameter on the switch node.
+Connect the *attribute wrangle* before the *foreach loop*, connect the *copy to points* to the *forloop end* and finally, drag the *forloop begin* to the spare input parameter on the *switch* node.
 
 
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/scatter/scatter_3.png)
 
 
-Then simply use the controller to select the percentages you want.
+Then simply use the *controller* to select the percentages you want.
 
 ### Reminder
 
