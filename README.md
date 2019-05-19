@@ -73,8 +73,7 @@ Imports the files in a path or in the subdirectories given a path and an extensi
 
 Create a copy to points for a for loop with a Controller with the percentage of the geometry you want to copy
 
-![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/scatter/scatter_4.png)
-![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/scatter/scatter_5.png)
+![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/scatter/scatter_prev.png)
 
 ## Usage
 
