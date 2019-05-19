@@ -84,7 +84,7 @@ With the points where you want to copy the geometry and a for loop, select the g
 
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/scatter/scatter_1.png)
 
-Then execute the script. It will create a switch node, a controller and a attribute wrangle.
+Then execute the script. It will create a switch node, a controller and an attribute wrangle.
 
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/scatter/scatter_2.png)
 
