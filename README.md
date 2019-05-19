@@ -71,7 +71,7 @@ Imports the files in a path or in the subdirectories given a path and an extensi
 
 # Instace based on percentage
 
-Create a copy to points for a for loop with a Controller with the percentage of the geometry you want to copy
+Creates a copy to points and Controller with the percentage of each geometry you want to copy inside a for loop
 
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/scatter/scatter_preview.png)
 
