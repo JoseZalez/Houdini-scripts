@@ -84,7 +84,7 @@ With the points where you want to copy the geometry created, select the geometry
 
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/scatter/Scatter_compiled_1.png)
 
-Then execute the script. Select the created nodes and press Shift+L to order them. It will create a *for loop* network with *compile blocks* already with the setup needed and a *controller*
+Then execute the script. Select the created nodes and press Shift+L to lay out them. It will create a *for loop* network with *compile blocks* already with the setup needed and a *controller*
 
 Connect your points to the *Input_points wrangle* and visualize the *compile_end*. Then simply use the *controller* to select the percentages you want.
 
