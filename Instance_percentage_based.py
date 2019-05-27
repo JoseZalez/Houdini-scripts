@@ -75,6 +75,7 @@ block_end.parm("method").set(1)
 block_end.parm("useattrib").set(0)
 block_end.parm("blockpath").set("../"+block_begin_input.name())
 block_end.parm("templatepath").set("../"+block_begin_input.name())
+block_end.parm("multithread").set(1)
 
 
 #Add the rand attribute to the wrangle
