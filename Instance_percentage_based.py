@@ -56,10 +56,26 @@ if not nodes:
 
 geo=nodes[0].parent()
 
-wrangle=geo.createNode("attribwrangle","Set_before_foreach_begin")
+wrangle=geo.createNode("attribwrangle","Input_points")
 controller=geo.createNode("null","Controller")
 switch=geo.createNode("switch")
 copytopts=geo.createNode("copytopoints")
+block_begin_input=geo.createNode("block_begin")
+compile_end=geo.createNode("compile_end")
+block_end=geo.createNode("block_end")
+
+
+#Set the block_end parms
+
+block_begin_input.parm("method").set(1)
+block_begin_input.parm("blockpath").set("../"+block_end.name())
+
+block_end.parm("itermethod").set(1)
+block_end.parm("method").set(1)
+block_end.parm("useattrib").set(0)
+block_end.parm("blockpath").set("../"+block_begin_input.name())
+block_end.parm("templatepath").set("../"+block_begin_input.name())
+
 
 #Add the rand attribute to the wrangle
 
@@ -83,12 +99,33 @@ for node in nodes:
 ptg.append(parm_folder)
 controller.setParmTemplateGroup(ptg)
 
-#Add the inputs to the switch node
+#Create the compile and block begins and connect them to the switch
+
+compile_begin_first=geo.createNode("compile_begin")
+compile_begin_first.parm("blockpath").set("../"+compile_end.name())
 
 for node in nodes:
-    switch.setNextInput(node)
+    compile_begin=geo.createNode("compile_begin")
+    compile_begin.parm("blockpath").set("../"+compile_end.name())
+    compile_begin.setInput(0,node)
+    block_begin_loop=geo.createNode("block_begin")
+    block_begin_loop.parm("method").set(3)
+    block_begin_loop.parm("blockpath").set("../"+block_end.name())
+    block_begin_loop.setInput(0,compile_begin)
     
-copytopts.setNextInput(switch)
+    switch.setNextInput(block_begin_loop)
+    
+
+#Connect the inputs from the nodes to create the network
+
+compile_begin_first.setInput(0,wrangle)
+block_begin_input.setInput(0,compile_begin_first)
+
+copytopts.setInput(0,switch)
+copytopts.setInput(1,block_begin_input)
+
+block_end.setInput(0,copytopts)
+compile_end.setInput(0,block_end)
 
 switch.moveToGoodPosition()
 copytopts.moveToGoodPosition()
@@ -115,4 +152,6 @@ parmtemplate=hou.StringParmTemplate ('spare_input0','Spare Input 0', 1 ,naming_s
 parm_folder.addParmTemplate(parmtemplate)
 ptg.append(parm_folder)
 switch.setParmTemplateGroup(ptg)
+
+switch.parm("spare_input0").set("../"+block_begin_input.name())
 
