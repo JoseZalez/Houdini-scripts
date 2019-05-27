@@ -80,21 +80,16 @@ Creates a copy to points and Controller with the percentage of each geometry you
 
 ## Usage
 
-With the points where you want to copy the geometry and a foreach loop, select the geometry you want to copy on the points:
+With the points where you want to copy the geometry created, select the geometry you want to copy on the points:
 
-![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/scatter/scatter_1.png)
+![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/scatter/Scatter_compiled_1.png)
 
-Then execute the script. It will create a *switch* node, a *controller* and an *attribute wrangle*.
+Then execute the script. Select the created nodes and press Shift+L to order them. It will create a *for loop* network with *compile blocks* already with the setup needed and a *controller*
 
-![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/scatter/scatter_2.png)
+Connect your points to the *Input_points wrangle* and visualize the *compile_end*. Then simply use the *controller* to select the percentages you want.
 
-Connect the *attribute wrangle* before the *foreach loop*, connect the *copy to points* to the *forloop end* and finally, drag the *forloop begin* to the spare input parameter on the *switch* node.
+![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/scatter/Scatter_compiled_2.png)
 
-
-![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/scatter/scatter_3.png)
-
-
-Then simply use the *controller* to select the percentages you want.
 
 ### Reminder
 
