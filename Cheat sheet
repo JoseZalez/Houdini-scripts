@@ -1,2 +1,25 @@
 ## Split and get last element from a string
-  i@__nameid= atoi(split(@name,"_")[-1]);i@__nameid= atoi(split(@name,"_")[-1]);
+  i@__nameid = atoi(split(@name,"_")[-1]);
+
+## Get transformation matrix
+    vector P0 = point(0,"P",0);
+    vector P1 = point(0,"P",1);
+    vector P2 = point(0,"P",2);
+
+    v@xAxis=normalize(P2-P1);
+    v@zAxis=normalize(P1-P0);
+    v@yAxis=normalize(cross(@zAxis,@xAxis));
+
+    4@mytransform=set(@xAxis,@yAxis,@zAxis,@P);
+
+    setcomp(@mytransform,0,0,3);
+    setcomp(@mytransform,0,1,3);
+    setcomp(@mytransform,0,2,3);
+    
+    ## Apply it
+        matrix mytransform = point(1,"mytransform",0);
+        v@P*=invert(mytransform);
+        v@v*=matrix3(invert(mytransform));
+        
+## Check attribute exist
+    i@hasAttrib = hasattrib(0, "point", "attribName");
