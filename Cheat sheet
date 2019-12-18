@@ -21,5 +21,16 @@
         v@P*=invert(mytransform);
         v@v*=matrix3(invert(mytransform));
         
+        ~~ Using transform by attrb will also multiply custom attributes if wanted
+        
 ## Check attribute exist
     i@hasAttrib = hasattrib(0, "point", "attribName");
+    
+## Remove particles below geo
+    vector ray = {0,1,0};
+    
+    vector p;
+    float u,v;
+    int intersect = intersect(1,@P,ray*1e6,p,u,v);
+    
+    if(intersect !=-1) i@dead = 1;
