@@ -34,3 +34,41 @@
     int intersect = intersect(1,@P,ray*1e6,p,u,v);
     
     if(intersect !=-1) i@dead = 1;
+
+
+
+##PYTHON 
+
+    #Intersection 2 lines
+    
+A = geo.point(0).position()
+B = geo.point(1).position()
+C = geo.point(2).position()
+D = geo.point(3).position()
+
+A=(A[0],A[2])
+B=(B[0],B[2])
+C=(C[0],C[2])
+D=(D[0],D[2])
+
+def line_intersection(line1, line2):
+    xdiff = (line1[0][0] - line1[1][0], line2[0][0] - line2[1][0])
+    ydiff = (line1[0][1] - line1[1][1], line2[0][1] - line2[1][1])
+
+    def det(a, b):
+        return a[0] * b[1] - a[1] * b[0]
+
+    div = det(xdiff, ydiff)
+    if div == 0:
+       raise Exception('lines do not intersect')
+
+    d = (det(*line1), det(*line2))
+    x = det(d, xdiff) / div
+    y = det(d, ydiff) / div
+    
+    inter=(x,y)
+    
+    geo.addAttrib(hou.attribType.Global, "inter", inter)
+    
+
+print line_intersection((A, B), (C, D))
