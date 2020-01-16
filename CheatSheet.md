@@ -57,7 +57,7 @@
 
 ## Intersection 2 lines
     
-    ##PYTHON
+    # PYTHON
 A = geo.point(0).position()
 B = geo.point(1).position()
 C = geo.point(2).position()
@@ -91,7 +91,7 @@ def line_intersection(line1, line2):
 print line_intersection((A, B), (C, D))
 
 
-#Faster implementation with vex (line 1 first input, line 2 second input)
+### Faster implementation with vex (line 1 first input, line 2 second input)
 
 vector dir = point(1,"P",1)-point(1,"P",0);
 
