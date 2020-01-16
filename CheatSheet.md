@@ -12,8 +12,16 @@
   
   as setattribtypeinfo(0, "point", "myVector", "point");  
   
-
-
+## Substeping
+   
+   Inside dops there are 3 ways of using substeps.
+   
+   -Solver substeps: this will run all the microsolvers, including the source nodes as many timesteps as substeps we have.  CFL shouldnt be modified from 1.
+   
+   -Dop substeps: they are a special case, this are for brute forcing the sim, and should only be used when there are animated parameters inside the dopnet and we need them to be interpolated between frames (I.E: keyframing the disturbance from 3 to 0.2 in very few frames).
+   
+   -Gas substeps node: this one allows to run substeps in a specific connection of our dopnet. You just need to be careful since if the source is mving fast and is connected to this node, other parameters like dissipation wont be calculated in timesteps so they would dissipate in a block shape.
+   
 ## Split and get last element from a string
   i@__nameid = atoi(split(@name,"_")[-1]);
 
