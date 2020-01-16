@@ -6,7 +6,7 @@
   Attributes like position are stored as point, and vectors as rest are stored as none since we dont want the values to change.
   Vectors are modified by transforms, 3 floats are not.
   
-  Theres more information [here](https://www.sidefx.com/docs/houdini/vex/functions/setattribtypeinfo.html)
+  Theres more information [here]: https://www.sidefx.com/docs/houdini/vex/functions/setattribtypeinfo.html
   
   and the code to change the attrib type is setattribtypeinfo(geoself(), aclass, attrib, atype);
   
