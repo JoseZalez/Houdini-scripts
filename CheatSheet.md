@@ -24,6 +24,13 @@
    
 ## Split and get last element from a string
   i@__nameid = atoi(split(@name,"_")[-1]);
+  
+  
+## Random orient
+
+  vector axis=sample_direction_uniform(rand(@ptnum));
+  float angle=ch("angle");
+  p@orient=quaternion(angle,axis);
 
 ## Get transformation matrix
     vector P0 = point(0,"P",0);
