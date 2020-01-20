@@ -29,7 +29,9 @@
 ## Random orient
 
   vector axis=sample_direction_uniform(rand(@ptnum));
+  
   float angle=ch("angle");
+  
   p@orient=quaternion(angle,axis);
 
 ## Get transformation matrix
