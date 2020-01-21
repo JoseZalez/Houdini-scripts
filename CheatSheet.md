@@ -34,6 +34,14 @@
   
   p@orient=quaternion(angle,axis);
 
+## Intersection vector and grid
+
+  vector dir2=point(1,"dir2",0);
+
+  @P+=v@dir1*(dot(dir2,point(1,"P",0)-@P)/dot(dir2,v@dir1));
+  
+  https://sites.google.com/site/fujitarium/Houdini/fx-procedural-processes/geometry-intersection
+
 ## Get transformation matrix
     vector P0 = point(0,"P",0);
     vector P1 = point(0,"P",1);
