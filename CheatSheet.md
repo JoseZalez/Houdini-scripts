@@ -125,3 +125,27 @@ vector p,uv;
 intersect(0,point(1,"P",0),dir,p,uv);
 
 addpoint(0,p);
+
+
+## OPENCL
+
+### Example of importing a index attribute and using to to modify the y parameter (need to bind it)
+
+#include "interpolate.h" 
+float lerpConstant( constant float * in, int size, float pos);
+
+kernel void scale( 
+                 int P_length, 
+                 global float * P ,
+                 int id_length, 
+                 global float * id 
+)
+{
+    int idx = get_global_id(0);
+    if (idx >= P_length)
+        return;
+    
+    float3 pos = vload3(idx,P);
+    pos.y = pos.y+(idx*.2);
+    vstore3(pos,idx,P);
+}
