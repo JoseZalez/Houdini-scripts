@@ -144,8 +144,9 @@ kernel void scale(
     int idx = get_global_id(0);
     if (idx >= P_length)
         return;
-    
-    float3 pos = vload3(idx,P);
+       
+   float3 pos = vload3(idx,P);
     pos.y = pos.y+(idx*.2);
     vstore3(pos,idx,P);
-}
+
+ }
