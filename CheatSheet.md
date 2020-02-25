@@ -60,14 +60,14 @@
     setcomp(@mytransform,0,1,3);
     setcomp(@mytransform,0,2,3);
 ```   
-    ## Apply it
-    ```
-        matrix mytransform = point(1,"mytransform",0);
-        v@P*=invert(mytransform);
-        v@v*=matrix3(invert(mytransform));
-    ```
+## Apply it
+```
+    matrix mytransform = point(1,"mytransform",0);
+    v@P*=invert(mytransform);
+    v@v*=matrix3(invert(mytransform));
+```
         
-        ~~ Using transform by attrb will also multiply custom attributes if wanted
+~~ Using transform by attrb will also multiply custom attributes if wanted
         
 ## Check attribute exist
 
