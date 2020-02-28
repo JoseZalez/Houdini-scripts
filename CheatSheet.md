@@ -60,6 +60,23 @@
     setcomp(@mytransform,0,1,3);
     setcomp(@mytransform,0,2,3);
 ```   
+
+### 2 point based with Normal
+```
+    vector P0 = point(0,"P",0);
+    vector P1 = point(0,"P",1);
+    vector N = point(0,"N",0);
+
+    v@xAxis=normalize(P0-P1);
+    v@zAxis=normalize(cross(@xAxis,N));
+    v@yAxis=normalize(N);
+
+    4@mytransform=set(@xAxis,@yAxis,@zAxis,@P);
+
+    setcomp(@mytransform,0,0,3);
+    setcomp(@mytransform,0,1,3);
+    setcomp(@mytransform,0,2,3);
+```
 ## Apply it
 ```
     matrix mytransform = point(1,"mytransform",0);
