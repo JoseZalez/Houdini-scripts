@@ -188,7 +188,7 @@ Extra thing if you need to write the list on detail, if its not declared as an a
 attrib = geo.addArrayAttrib(hou.attribType.Global, "scatter_id", hou.attribData.Int , tuple_size=10)
 geo.setGlobalAttribValue(attrib, scatter_list)
 ```
-Another vex solution using uniquevals
+Another vex solution using uniquevals, also slower than using a for loop.
 
 ```
 int values [] = uniquevals(0, "prim", "index");
