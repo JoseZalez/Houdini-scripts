@@ -153,6 +153,41 @@ intersect(0,point(1,"P",0),dir,p,uv);
 addpoint(0,p);
 ```
 
+## Get index for random shared attribute
+
+When you have different instances with an id but there are number missing between them and you need to iterate in a wedge or something similar.
+
+Result is much faster just using a for loop with the iteration metadata.
+
+```
+node = hou.pwd()
+geo = node.geometry()
+
+scatter_list=[]
+
+geo.addAttrib(hou.attribType.Prim,"id", 0)
+
+id=0
+
+
+for prim in geo.prims():
+    scatter_val=prim.attribValue("scatter_id")
+    if scatter_val not in scatter_list:
+        scatter_list.append(scatter_val)
+
+for prim in geo.prims():
+    scatter_value=prim.attribValue("scatter_id")
+    id=scatter_list.index(scatter_value)
+    prim.setAttribValue("id",id)
+```
+Extra thing if you need to write the list on detail, if its not declared as an array the list will be written as individual lists.
+
+```
+attrib = geo.addArrayAttrib(hou.attribType.Global, "scatter_id", hou.attribData.Int , tuple_size=10)
+geo.setGlobalAttribValue(attrib, scatter_list)
+```
+
+
 ## OPENCL
 
 ### Example of importing a index attribute and using to to modify the y parameter (need to bind it)
