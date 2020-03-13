@@ -188,6 +188,19 @@ Extra thing if you need to write the list on detail, if its not declared as an a
 attrib = geo.addArrayAttrib(hou.attribType.Global, "scatter_id", hou.attribData.Int , tuple_size=10)
 geo.setGlobalAttribValue(attrib, scatter_list)
 ```
+Another vex solution using uniquevals
+
+```
+int values [] = uniquevals(0, "prim", "index");
+
+int prims[] = expandprimgroup(0, "*");
+
+foreach(int prim;prims){
+    int prim_value=primattrib(0,"index",prim,0);
+    int scatter_id=find(values,prim_value);
+    setprimattrib(0,"scatter_id",prim,scatter_id);
+}
+```
 
 
 ## OPENCL
