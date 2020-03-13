@@ -152,6 +152,8 @@ intersect(0,point(1,"P",0),dir,p,uv);
 
 addpoint(0,p);
 ```
+Vex function planepointdistance might also work for some cases (gets the intersection based on the plane normal not the line direction)
+
 
 ## Get index for random shared attribute
 
