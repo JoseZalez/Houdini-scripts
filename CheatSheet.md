@@ -152,7 +152,8 @@ For a way faster method check a opencl implementation https://github.com/JoseZal
 
 ## Intersection 2 lines
     
-    # PYTHON
+# PYTHON
+
  ```
 A = geo.point(0).position()
 B = geo.point(1).position()
