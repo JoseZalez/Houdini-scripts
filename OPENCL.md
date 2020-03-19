@@ -74,12 +74,12 @@ kernel void getminmax(
                  global float * val ,
                  int max_length, 
                  global float * max ,
+                 int min_length, 
+                 global float * min ,
                  int __scratchMax_length, 
                  global float * __scratchMax ,
                  int __scratchMin_length, 
-                 global float * __scratchMin ,
-                 int min_length, 
-                 global float * min 
+                 global float * __scratchMin 
                  )
 {
     int idx = get_global_id(0);
