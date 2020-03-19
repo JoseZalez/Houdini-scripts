@@ -102,6 +102,9 @@
 ```
 
 ## Get min max 
+
+Faster method than attribute promote, run over detail
+
 ```
 int pts[]=expandpointgroup(0,"*");
 float min,max;
