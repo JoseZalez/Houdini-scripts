@@ -146,7 +146,100 @@ foreach(int pt;pts){
 f@min=min(val);
 f@max=max(val);
 ```
+###OPENCL implementation
 
+Way faster than any other method.
+
+For 10m points:
+
+- Vex: 5s
+- Attribute promote: 2.5s
+- OpenCL: 0.5s
+
+Wrangle before OpenCL node
+```
+f@__test=rand(@ptnum)*1651;
+f@min;
+f@max;
+f@__scratchMin;
+f@__scratchMax;
+```
+
+OpenCL integration, add temp_max and temp_min as float parameters and the previous attributes from the wrangle, switching the __test to val
+
+```
+#include "interpolate.h" 
+float lerpConstant( constant float * in, int size, float pos);
+
+kernel void getminmax( 
+                 float  temp_max ,
+                 float  temp_min ,
+                 int val_length, 
+                 global float * val ,
+                 int max_length, 
+                 global float * max ,
+                 int __scratchMax_length, 
+                 global float * __scratchMax ,
+                 int __scratchMin_length, 
+                 global float * __scratchMin ,
+                 int min_length, 
+                 global float * min 
+                 )
+{
+    int idx = get_global_id(0);
+    if (idx > 0)
+        return;
+        
+        
+    temp_min=vload(0,val);
+    temp_max=vload(0,val);
+    
+    for(int pt=0; pt<max_length;pt++){
+    
+        float value = vload(pt,val);
+    
+        if(value>temp_max)
+            temp_max=value;
+        if(value<temp_min)
+            temp_min=value;
+        
+    }
+        
+    vstore(temp_max, 0,__scratchMax);
+    vstore(temp_min, 0,__scratchMin);
+
+}
+
+kernel void writeBack( 
+                 float  temp_max ,
+                 float  temp_min ,
+                 int val_length, 
+                 global float * val ,
+                 int max_length, 
+                 global float * max ,
+                 int __scratchMax_length, 
+                 global float * __scratchMax ,
+                 int __scratchMin_length, 
+                 global float * __scratchMin ,
+                 int min_length, 
+                 global float * min 
+                 )
+{
+    int idx = get_global_id(0);
+    if (idx >= max_length)
+        return;
+        
+    temp_min=vload(0,__scratchMin);
+    temp_max=vload(0,__scratchMax);
+        
+       
+    vstore(temp_min, idx, min);
+    vstore(temp_max, idx ,max);
+
+}
+```
+
+```
 
 ## Intersection 2 lines
     
