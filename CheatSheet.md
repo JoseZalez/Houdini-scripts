@@ -146,7 +146,7 @@ foreach(int pt;pts){
 f@min=min(val);
 f@max=max(val);
 ```
-###OPENCL implementation
+### OPENCL implementation
 
 Way faster than any other method.
 
