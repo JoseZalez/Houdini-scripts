@@ -103,22 +103,11 @@
 
 ## Get min max 
 
-Shorter method than attribute promote, run over detail
+Shorter method than attribute promote.
 
-```
-int pts[]=expandpointgroup(0,"*");
-float val[];
+IMPORTANT : run over detail
 
-foreach(int pt;pts){
-
-    append(val,float(point(0,"__test",pt)));
-}
-
-f@min=min(val);
-f@max=max(val);
-```
-
-For heavy geo
+This method is slower than attribute promote, just in case we cant use them.
 
 ```
 int pts[]=expandpointgroup(0,"*");
@@ -141,6 +130,21 @@ foreach(int pt;pts){
 
 f@min=min;
 f@max=max;
+```
+
+Shorter version but really heavy, DONT USE
+
+```
+int pts[]=expandpointgroup(0,"*");
+float val[];
+
+foreach(int pt;pts){
+
+    append(val,float(point(0,"__test",pt)));
+}
+
+f@min=min(val);
+f@max=max(val);
 ```
 
 
