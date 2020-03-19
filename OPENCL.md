@@ -11,6 +11,11 @@ I will post here a few code examples I create from time to time.
 
 Before using any of these kernels, you will need to go to the bindings tab and add the different atributes you will be using.
 
+## IMPORTANT NOTE
+
+If you are copying a kernel from other person, the binding attributes MUST be in the exact order as they are imported in the kernel definition.
+
+
 ### Example of importing a index attribute and using to to modify the y parameter
 
 In the OpenCL bindings add the parameter P as an attribute with size 3.
@@ -138,11 +143,11 @@ Wrangle before OpenCL node with the point connected to second input.
 ```
 i@iter=0;
 
-v@ext_pos=point(1,"P",0);
+v@ext=point(1,"P",0);
 
 v@Cd=1;
 ```
-And the an OPENCL node with ext position as ext, Cd, max_iter, iter and P.
+And the an OPENCL node with max_iter as an int, ext, Cd, max_iter, iter and P as attributes, with only iter and Cd as readable and writeable.
 
 ```
 #include "interpolate.h" 
