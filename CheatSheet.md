@@ -107,6 +107,21 @@ Faster method than attribute promote, run over detail
 
 ```
 int pts[]=expandpointgroup(0,"*");
+float val[];
+
+foreach(int pt;pts){
+
+    append(val,float(point(0,"__test",pt)));
+}
+
+f@min=min(val);
+f@max=max(val);
+```
+
+For heavy geo
+
+```
+int pts[]=expandpointgroup(0,"*");
 float min,max;
 
 foreach(int pt;pts){
