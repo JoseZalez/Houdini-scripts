@@ -101,7 +101,29 @@
     if(intersect !=-1) i@dead = 1;
 ```
 
+## Get min max 
+```
+int pts[]=expandpointgroup(0,"*");
+float min,max;
 
+foreach(int pt;pts){
+
+    float ptmax=point(0,"__test",pt);
+    float ptmin=point(0,"__test",pt);
+    
+    if(pt == 0){
+        min = ptmin;
+        max = ptmax;
+    }
+    else{
+        if(ptmax > max) max = ptmax;
+        else if(ptmin < min) min = ptmin;
+    }
+}
+
+f@min=min;
+f@max=max;
+```
 
 
 ## Intersection 2 lines
