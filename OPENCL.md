@@ -5,7 +5,7 @@ Welcome to the world of OpenCL.
 
 OpenCL in houdini can take advantage of processing data much faster than vex or compiled sops on c++.
 
-THe only takeaway mainly is that you need to prepare the inputs and error feedback couldnt be worse sometimes.
+The main takeaway is that you need to prepare the inputs and error feedback couldnt be worse sometimes.
 
 I will post here a few code examples I create from time to time.
 
