@@ -13,15 +13,15 @@ Before using any of these kernels, you will need to go to the bindings tab and a
 
 ### Example of importing a index attribute and using to to modify the y parameter
 
+In the OpenCL bindings add the parameter P as an attribute with size 3.
+
  ```
 #include "interpolate.h" 
 float lerpConstant( constant float * in, int size, float pos);
 
-kernel void scale( 
+kernel void kernelName( 
                  int P_length, 
-                 global float * P ,
-                 int id_length, 
-                 global float * id 
+                 global float * P
 )
 {
     int idx = get_global_id(0);
