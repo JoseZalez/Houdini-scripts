@@ -103,7 +103,7 @@
 
 ## Get min max 
 
-Faster method than attribute promote, run over detail
+Shorter method than attribute promote, run over detail
 
 ```
 int pts[]=expandpointgroup(0,"*");
