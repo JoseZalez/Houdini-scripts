@@ -30,6 +30,8 @@ With the *Add* function you can add parameters from different nodes.
 
 The parameters update automatically.
 
+[Code](https://github.com/JoseZalez/Houdini-scripts/blob/master/Camera_comments.py)
+
 
 ## Usage
 
@@ -41,6 +43,8 @@ Simply add the code to a custom script on your toolbar, save, open it and CTRL+C
 # Import multiple agent clips
 
 Allows you to import multiple clips to an *Agent Clip* node selecting them from a list of the path introduced, setting automatically the path and the name.
+
+[Code](https://github.com/JoseZalez/Houdini-scripts/blob/master/Import_multiple_agent_clips.py)
 
 ## Usage
 
@@ -60,6 +64,8 @@ Given a path with the textures, creates a principal shader with all the images c
 
 Returns a message if a image input wasnt found.
 
+[Code](https://github.com/JoseZalez/Houdini-scripts/blob/master/PrincipalShader_from_path.py)
+
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/create_shader.png)
 
 # Import files
@@ -68,11 +74,15 @@ Imports the files in a path or in the subdirectories given a path and an extensi
 
 *Import as FBX* allows you to import FBX with animation in *SOP* level.
 
+[Code](https://github.com/JoseZalez/Houdini-scripts/blob/master/Import_files.py)
+
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/import_files_path.png)
 
 # Instace based on percentage
 
 Creates a copy to points and Controller with the percentage of each geometry you want to copy inside a foreach loop
+
+[Code](https://github.com/JoseZalez/Houdini-scripts/blob/master/Instance_percentage_based.py)
 
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/scatter/scatter_preview.png)
 
