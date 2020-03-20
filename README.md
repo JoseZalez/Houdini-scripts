@@ -4,6 +4,7 @@ A collection of my personal Houdini scripts and tools.
 ### Contact
  
  [LinkedIn](https://www.linkedin.com/in/jose-gonzalezvfx/)
+ 
  [Vimeo](https://vimeo.com/josezalez)
  
 # Repository
