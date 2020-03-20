@@ -24,8 +24,9 @@
    
 ## Split and get last element from a string
 
+```
   i@__nameid = atoi(split(@name,"_")[-1]);
-  
+```
   
 ## Random orient
 ```
