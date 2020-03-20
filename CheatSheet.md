@@ -150,9 +150,9 @@ f@max=max(val);
 
 For a way faster method check a opencl implementation https://github.com/JoseZalez/Houdini-scripts/blob/master/OPENCL.md
 
-## Intersection 2 lines
+# Intersection 2 lines
     
-# PYTHON
+## PYTHON
 
  ```
 A = geo.point(0).position()
