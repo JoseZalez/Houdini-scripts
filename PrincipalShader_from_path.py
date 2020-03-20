@@ -1,5 +1,5 @@
 #Creates a principle shader with the texture from a path connected
-#Vimeo.com/josezalez
+#https://www.linkedin.com/in/jose-gonzalezvfx/
 
 import os
 
