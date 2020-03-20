@@ -1,5 +1,5 @@
 ﻿#Create a Controller to set a percentage in a copy to points for each geometry
-#Vimeo.com/josezalez
+#https://www.linkedin.com/in/jose-gonzalezvfx/
 
 def createexpression(controller):
     
