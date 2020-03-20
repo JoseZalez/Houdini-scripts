@@ -1,5 +1,5 @@
 ﻿#Add parameters to the camera 
-#Vimeo.com/josezalez
+#https://www.linkedin.com/in/jose-gonzalezvfx/
 
 import os
 
