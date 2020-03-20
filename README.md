@@ -1,11 +1,5 @@
 # Houdini-scripts
 A collection of my personal Houdini scripts and tools.
-
-### Contact
- 
- [LinkedIn](https://www.linkedin.com/in/jose-gonzalezvfx/)
- 
- [Vimeo](https://vimeo.com/josezalez)
  
 ## Python Tools
 A set of python tools I have been creating overtime.
@@ -21,8 +15,13 @@ Some tips and short useful scripts with vex and python
 Quick introduction to OpenCL with a few kernels 
  
  [OPENCL](https://github.com/JoseZalez/Houdini-scripts/blob/master/OPENCL.md)
+
+### Contact
  
+ [LinkedIn](https://www.linkedin.com/in/jose-gonzalezvfx/)
  
+ [Vimeo](https://vimeo.com/josezalez)
+
 ## License
 
 Public domain.
