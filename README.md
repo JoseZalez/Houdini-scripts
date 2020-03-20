@@ -7,8 +7,6 @@ A collection of my personal Houdini scripts and tools.
  
  [Vimeo](https://vimeo.com/josezalez)
  
-# Repository
-
 ## Python Tools
 A set of python tools I have been creating overtime.
 
