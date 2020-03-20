@@ -12,13 +12,6 @@
 
 Simply create a new tool in your toolbar, paste the code, save and execute.
 
-### Extra information
-
-I created 2 separate documents with a set of tips, useful scripts and an introduction to OpenCL with some examples.
-
- [CheatSheet](https://github.com/JoseZalez/Houdini-scripts/blob/master/CheatSheet.md)
- 
- [OPENCL](https://github.com/JoseZalez/Houdini-scripts/blob/master/OPENCL.md)
  
 # Add parameter comments to camera
 
