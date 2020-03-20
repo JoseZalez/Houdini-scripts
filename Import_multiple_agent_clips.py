@@ -1,5 +1,5 @@
 ﻿#Imports multiple clips selected from a list to a Houdini agent clip node
-#Vimeo.com/josezalez
+#https://www.linkedin.com/in/jose-gonzalezvfx/
 
 import os
 
