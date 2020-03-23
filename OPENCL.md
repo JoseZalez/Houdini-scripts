@@ -135,6 +135,70 @@ kernel void writeBack(
 }
 ```
 
+### Volume Noise
+
+Add the density volume atribute in bindings with everything but 
+volume transform to voxel, and a freq float.
+
+Also activate the time and xnoise function imports on the second tab.
+
+If we compare this method to using a volume vop it runs at 10-15 times faster, but as always, customizing the noise is a bit annoying. This method shows how to run our kernel over all voxels and how to get the voxel position in our global scene.
+
+```
+#include "interpolate.h" 
+#include <xnoise.h>
+
+float lerpConstant( constant float * in, int size, float pos);
+
+kernel void kernelName( 
+                 float time, 
+                 global const void *theXNoise, 
+                 float freq, 
+                 int density_stride_x, 
+                 int density_stride_y, 
+                 int density_stride_z, 
+                 int density_stride_offset, 
+                 int density_res_x, 
+                 int density_res_y, 
+                 int density_res_z, 
+                 float density_voxelsize_x, 
+                 float density_voxelsize_y, 
+                 float density_voxelsize_z, 
+                 float16 density_xformtoworld, 
+                 global float * density 
+)
+{
+    int gidx = get_global_id(0);
+    int gidy = get_global_id(1);
+    int gidz = get_global_id(2);
+    int idx = density_stride_offset + density_stride_x * gidx
+                               + density_stride_y * gidy
+                               + density_stride_z * gidz;
+
+                               
+                      
+    // Voxel position in in local space.
+    
+    float4 voxposglobal = gidx * density_xformtoworld.lo.lo +
+                      gidy * density_xformtoworld.lo.hi +
+                      gidz * density_xformtoworld.hi.lo + 
+                      1 * density_xformtoworld.hi.hi;
+                      
+    // 4D position for noise
+    float4 P = (float4)(voxposglobal)*freq;
+    
+    P.w = time;
+    
+    float3 noise = 0;
+    
+    noise = curlxnoise4(theXNoise,P);
+    
+    density[idx]=noise.x*density[idx];     
+    
+}
+```
+
+
 ### Julia Set 
 
 Create a grid with high subdivs and a point to control the range.
