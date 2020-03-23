@@ -19,8 +19,6 @@ Quick introduction to OpenCL with a few kernels
 ### Contact
  
  [LinkedIn](https://www.linkedin.com/in/jose-gonzalezvfx/)
- 
- [Vimeo](https://vimeo.com/josezalez)
 
 ## License
 
