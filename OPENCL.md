@@ -52,7 +52,7 @@ For 10m points:
 
 Wrangle before OpenCL node
 ```
-f@valt=rand(@ptnum)*1651;
+f@val=rand(@ptnum)*1651;
 f@min;
 f@max;
 f@__scratchMin;
