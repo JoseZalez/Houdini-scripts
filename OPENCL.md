@@ -198,6 +198,102 @@ kernel void kernelName(
 }
 ```
 
+### Volume Displacement
+
+Similar to the volume noise but we add that noise to the idx values and import that density back. We need to import a copy of the density as a temp volume to store the new density values.
+
+
+```
+#include "interpolate.h" 
+#include <xnoise.h>
+
+float lerpConstant( constant float * in, int size, float pos);
+
+kernel void kernelName( 
+                 float time, 
+                 global const void *theXNoise, 
+                 float  mult ,
+                 int density_stride_x, 
+                 int density_stride_y, 
+                 int density_stride_z, 
+                 int density_stride_offset, 
+                 float16 density_xformtoworld, 
+                 float16 density_xformtovoxel, 
+                 global float * density ,
+                 float  freq ,
+                 global float * temp 
+                 )
+{
+    int gidx = get_global_id(0);
+    int gidy = get_global_id(1);
+    int gidz = get_global_id(2);
+    int idx = density_stride_offset + density_stride_x * gidx
+                               + density_stride_y * gidy
+                               + density_stride_z * gidz;
+
+                               
+                      
+    // Voxel position in in local space.
+    
+    float4 voxposglobal = gidx * density_xformtoworld.lo.lo +
+                      gidy * density_xformtoworld.lo.hi +
+                      gidz * density_xformtoworld.hi.lo + 
+                      1 * density_xformtoworld.hi.hi;
+                      
+    // 4D position for noise
+    float4 P = (float4)(voxposglobal)*freq;
+    
+    P.w = time;
+    
+    float3 noise = 0;
+    
+    noise = curlxnoise4(theXNoise,P);
+    
+    noise*=mult;
+    
+    float4 voxposdisp = (voxposglobal.x+noise.x) * density_xformtovoxel.lo.lo +
+                      (voxposglobal.y+noise.y) * density_xformtovoxel.lo.hi +
+                      (voxposglobal.z+noise.z) * density_xformtovoxel.hi.lo + 
+                      1 * density_xformtovoxel.hi.hi;
+                      
+    int idxdisp = density_stride_offset + density_stride_x *voxposdisp.x
+                 + density_stride_y *voxposdisp.y
+                 + density_stride_z *voxposdisp.z;
+                 
+    float dens = vload(idxdisp,density);    
+    
+    temp[idx]=dens;     
+    
+}
+
+kernel void writeBack( 
+                 float time, 
+                 global const void *theXNoise, 
+                 float  mult ,
+                 int density_stride_x, 
+                 int density_stride_y, 
+                 int density_stride_z, 
+                 int density_stride_offset, 
+                 float16 density_xformtoworld, 
+                 float16 density_xformtovoxel, 
+                 global float * density ,
+                 float  freq ,
+                 global float * temp 
+                 )
+{
+    int gidx = get_global_id(0);
+    int gidy = get_global_id(1);
+    int gidz = get_global_id(2);
+    int idx = density_stride_offset + density_stride_x * gidx
+                               + density_stride_y * gidy
+                               + density_stride_z * gidz;
+
+                               
+    density[idx]=temp[idx];     
+    
+}
+```
+
 
 ### Julia Set 
 
