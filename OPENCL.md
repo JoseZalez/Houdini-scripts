@@ -142,7 +142,7 @@ volume transform to voxel, and a freq float.
 
 Also activate the time and xnoise function imports on the second tab.
 
-If we compare this method to using a volume vop it runs at 10-15 times faster, but as always, customizing the noise is a bit annoying. This method shows how to run our kernel over all voxels and how to get the voxel position in our global scene.
+If we compare this method to using a volume vop it runs at 5 times faster, but as always, customizing the noise is a bit annoying. This method shows how to run our kernel over all voxels and how to get the voxel position in our global scene.
 
 ```
 #include "interpolate.h" 
