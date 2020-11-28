@@ -24,7 +24,7 @@
    
 ## Retiming
 
-  When retiming volumes, use the cubic interpolation with the advected blend mode. You might get flickering on .0 frames, a hack to rpevent this is to offseet the start frame by +.25 for example, using now only interpolated frames.
+  When retiming volumes, use the cubic interpolation with the advected blend mode. You might get flickering on .0 frames, a hack to prevent this is to offseet the start frame by +.25 for example, using now only interpolated frames.
    
 ## Split and get last element from a string
 
