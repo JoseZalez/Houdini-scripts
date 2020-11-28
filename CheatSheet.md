@@ -22,6 +22,10 @@
    
    -Gas substeps node: this one allows to run substeps in a specific connection of our dopnet. You just need to be careful since if the source is mving fast and is connected to this node, other parameters like dissipation wont be calculated in timesteps so they would dissipate in a block shape. This could be fixed if insted of using keyframes we use an expression.
    
+## Retiming
+
+  When retiming volumes, use the cubic interpolation with the advected blend mode. You might get flickering on .0 frames, a hack to rpevent this is to offseet the start frame by +.25 for example, using now only interpolated frames.
+   
 ## Split and get last element from a string
 
 ```
