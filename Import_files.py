@@ -148,7 +148,7 @@ class UI(QDialog):
                         elif self.abc.isChecked():
                         
                             file_node= geo_node[0].createNode("alembic")
-                            file_node.parm("fileName").set(file_path)
+                            file_node.parm("fileName").set(obj_path)
                             file_node.moveToGoodPosition()                        
  
                         else:
