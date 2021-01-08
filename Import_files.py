@@ -133,7 +133,6 @@ class UI(QDialog):
         #Store the path and the extension strings previously input by the user
         path = self.filepath.text()
         extension = self.extension.text()
-        print "hI"
         #Checks if the user closed the path, if not it closes it
         if not path.endswith("\\"):
                 path=path + "\\"
