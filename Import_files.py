@@ -1,9 +1,6 @@
 #Get a path and a file type and import all the objects matching in the folder + subdirectories
 #https://www.linkedin.com/in/jose-gonzalezvfx/
 
-#Get a path and a file type and import all the objects matching in the folder + subdirectories
-#https://www.linkedin.com/in/jose-gonzalezvfx/
-
 import os
 
 import sys
