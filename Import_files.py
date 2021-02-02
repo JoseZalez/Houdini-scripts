@@ -37,6 +37,14 @@ class UI(QDialog):
         extension_layout.addWidget(lbl)
         extension_layout.addWidget(self.extension)
         extension_layout.setSpacing(10)
+        
+        #Create a word filter
+        filter_layout = QHBoxLayout()
+        lbl = QLabel("Word filter:")
+        self.filter = QLineEdit("")
+        filter_layout.addWidget(lbl)
+        filter_layout.addWidget(self.filter)
+        filter_layout.setSpacing(10)
  
         #Create a check for looking for files in the subdirectories
         subdir_layout = QHBoxLayout()
@@ -65,6 +73,7 @@ class UI(QDialog):
         #Add all the layout together
         main_layout.addLayout(filepath_layout, stretch=1)
         main_layout.addLayout(extension_layout, stretch=1)
+        main_layout.addLayout(filter_layout, stretch=1)
         main_layout.addLayout(subdir_layout, stretch=1)
         main_layout.addLayout(fbx_layout, stretch=1)
         main_layout.addLayout(abc_layout, stretch=1)
@@ -103,6 +112,7 @@ class UI(QDialog):
         
         path=self.filepath.text()
         extension = self.extension.text()
+        filter = self.filter.text()
         list_paths=[]
         file_list =[]
         
@@ -132,7 +142,7 @@ class UI(QDialog):
             file_path = file
                                 
                                 
-            if(file.endswith(extension)):
+            if(file.endswith(extension) and file.find(filter)!=-1):
                     
                 list_paths.append(file_path)
 
