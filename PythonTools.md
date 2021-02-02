@@ -69,7 +69,7 @@ Given a path and a file extension, gets a list of the files in that current path
 
 [Code](https://github.com/JoseZalez/Houdini-scripts/blob/master/Import_files.py)
 
-![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/import_files_path.png)
+![alt tag](https://i.gyazo.com/002e6248921f93cfc83b0b2a7ad9e809.png)
 
 # Instace based on percentage
 
