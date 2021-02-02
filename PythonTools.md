@@ -1,9 +1,9 @@
 
 # Scripts
 
+* Import files
 * Add parameter comments to camera
 * Import multiple agent clips
-* Import files
 * Principal shader from path
 * Instace based on percentage
 
@@ -12,7 +12,16 @@
 
 Simply create a new tool in your toolbar, paste the code, save and execute.
 
- 
+# Import files
+
+Given a path and a file extension, gets a list of the files in that current path or subdirectories. Includes a word filter. Supports FBX, Alembic and Houdini files.
+
+*Import as FBX* allows you to import FBX with animation in *SOP* level.
+
+[Code](https://github.com/JoseZalez/Houdini-scripts/blob/master/Import_files.py)
+
+![alt tag](https://i.gyazo.com/002e6248921f93cfc83b0b2a7ad9e809.png)
+
 # Add parameter comments to camera
 
 Selecting a camera and a node, gets the node parameters and allows you to select from a list the parameters you want to display on the camera.
@@ -61,15 +70,7 @@ Returns a message if a image input wasnt found.
 
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/create_shader.png)
 
-# Import files
 
-Given a path and a file extension, gets a list of the files in that current path or subdirectories. Includes a word filter. Supports FBX, Alembic and Houdini files.
-
-*Import as FBX* allows you to import FBX with animation in *SOP* level.
-
-[Code](https://github.com/JoseZalez/Houdini-scripts/blob/master/Import_files.py)
-
-![alt tag](https://i.gyazo.com/002e6248921f93cfc83b0b2a7ad9e809.png)
 
 # Instace based on percentage
 
