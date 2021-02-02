@@ -63,7 +63,7 @@ Returns a message if a image input wasnt found.
 
 # Import files
 
-Imports the files in a path or in the subdirectories given a path and an extension.
+Given a path and a file extension, gets a list of the files in that current path or subdirectories. Includes a word filter. Supports FBX, Alembic and Houdini files.
 
 *Import as FBX* allows you to import FBX with animation in *SOP* level.
 
