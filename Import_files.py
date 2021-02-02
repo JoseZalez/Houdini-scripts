@@ -100,7 +100,7 @@ class UI(QDialog):
         name_list_all=[]
         
         for i in list_paths:
-            i=i[i.rfind('\\')+1:]
+            i=i[i.rfind('/')+1:]
             i=i[:-4]
             name_list_all.append(i)  
             
@@ -116,8 +116,8 @@ class UI(QDialog):
         list_paths=[]
         file_list =[]
         
-        if not path.endswith("\\"):
-            path=path + "\\"
+        if not path.endswith("/"):
+            path=path + "/"
             
         if self.subdir.isChecked():
             
