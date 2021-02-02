@@ -75,89 +75,123 @@ class UI(QDialog):
         self.button.clicked.connect(self.main)
 
     def main(self):
-
-        self.importfiles()
-
-
-    def importfiles(self):
-
+        
         #Get a list of the nodes selected, we will be using just the first one
-        geo_node=hou.selectedNodes()
-
-        #Store the path and the extension strings previously input by the user
-        path = self.filepath.text()
-        extension = self.extension.text()
-
-        #Checks if the user closed the path, if not it closes it
-        if not path.endswith("/"):
-                path=path + "/"
-                
-        files = []
+        geo_node=hou.selectedNodes()               
 
         #Check if the user selected a Node, if not returns a message
         if not geo_node:
             hou.ui.displayMessage("Please select a node to import the files into", buttons=('OK',), severity=hou.severityType.Message, default_choice=0, close_choice=0, title="Select a node",details_expanded=False)
+            
+        else:
+            self.importfiles()
+                    
+    def getlist_names(self,list_paths): #Get a short name for each file
+    
+        name_list_all=[]
+        
+        for i in list_paths:
+            i=i[i.rfind('/')+1:]
+            i=i[:-4]
+            name_list_all.append(i)  
+            
+        return name_list_all
+        
+    def getlist_paths(self):
+        
+        empty=0
+        
+        path=self.filepath.text()
+        extension = self.extension.text()
+        list_paths=[]
+        file_list =[]
+        
+        if not path.endswith("\\"):
+            path=path + "\\"
+            
+        if self.subdir.isChecked():
+            
+                        
+            #Gets all the subdirectories files and creates a path for each
+            for r, d, f in os.walk(path):
+                
+                for file in f:
+
+                    #Append files
+                    file_list.append(os.path.join(r, file))
+        
         else:
 
-            if self.subdir.isChecked():
-                        
-                        #Gets all the subdirectories files and creates a path for each
-                for r, d, f in os.walk(path):
+            for file in os.listdir(path):
+                #Gets all the file paths in the input path    
+                file_list.append(path+file)
                 
-                    for file in f:
+        
+        for file in file_list:
+                    
+            file_path = file
+                                
+                                
+            if(file.endswith(extension)):
+                    
+                list_paths.append(file_path)
 
-                        #Checks for files with the same file type as the one the user input
-                        if(file.endswith(extension)):
-                            files.append(os.path.join(r, file))
-                
-                #Iterate for every file path and creates a file node with the path loaded
-                for file_path in files:
-                    if self.fbx.isChecked():
+        #Returns a list of all the files with a short name
+        name_list_all=self.getlist_names(list_paths)
+        
+        #Creates a list with the index of the clips selected by the user
+        index_list=hou.ui.selectFromList(name_list_all, exclusive=False, title='Select clips', column_header="Clips", num_visible_rows=10, clear_on_cancel=False)
+        
+        if not index_list:
+            empty=1
+        
+        chosen_files=[]
+        name_list=[]
+        
+        #Creates a new name list with just the clips selected from the user 
+        for j in index_list:
+        
+            name_list.append(name_list_all[j])
+
+        #Creates a new list with just the clips selected from the user 
+        for x in index_list:
+        
+            chosen_files.append(list_paths[x])
+
+        return chosen_files,name_list,empty;
+
+        
+        
+    def importfiles(self):
+    
+        #Get a list of the nodes selected, we will be using just the first one
+        geo_node=hou.selectedNodes()               
+
+        tuple_list=self.getlist_paths()
+        chosen_files=tuple_list[0]
+        name_list = tuple_list[1]
+        empty = tuple_list[2]
+
+        #Iterate for every file path and creates a file node with the path loaded
+        for file_path in chosen_files:
+            if self.fbx.isChecked():
                     
-                        fbx_file = hou.hipFile.importFBX(file_path)
-                        #fbx_file.moveToGoodPosition()
+                fbx_file = hou.hipFile.importFBX(file_path)
+                #fbx_file.moveToGoodPosition()
                       
-                    elif self.abc.isChecked():
+            elif self.abc.isChecked():
                         
-                        file_node= geo_node[0].createNode("alembic")
-                        file_node.parm("fileName").set(file_path)
-                        file_node.moveToGoodPosition()                        
+                file_node= geo_node[0].createNode("alembic")
+                file_node.parm("fileName").set(file_path)
+                file_node.moveToGoodPosition()                        
                     
-                    else:
-                
-                        file_node= geo_node[0].createNode("file")
-                        file_node.parm("file").set(file_path)
-                        file_node.moveToGoodPosition()
             else:
                 
-                #The same as before but without iterating inside the subdirectories
-                file_list = os.listdir(path)
-            
-                for obj in file_list:
-            
-                    obj_path = path+obj
-                        
-                        #Checks for files with the same file type as the one the user input
-                    if(obj.endswith(extension)):
-                    
-                        if self.fbx.isChecked():
-                        
-                            hou.hipFile.importFBX(obj_path)
-                            #fbx_file.moveToGoodPosition()
-                       
-                        elif self.abc.isChecked():
-                        
-                            file_node= geo_node[0].createNode("alembic")
-                            file_node.parm("fileName").set(obj_path)
-                            file_node.moveToGoodPosition()                        
- 
-                        else:
-            
-                            file_node= geo_node[0].createNode("file")
-                            file_node.parm("file").set(obj_path)
-                            file_node.moveToGoodPosition()
+                file_node= geo_node[0].createNode("file")
+                file_node.parm("file").set(file_path)
+                file_node.moveToGoodPosition()               
         
-
+           
 #Starts the script window for the user
 app = QApplication.instance()
 if app is None: 
