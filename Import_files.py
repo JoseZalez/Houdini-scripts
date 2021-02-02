@@ -106,8 +106,8 @@ class UI(QDialog):
         list_paths=[]
         file_list =[]
         
-        if not path.endswith("\\"):
-            path=path + "\\"
+        if not path.endswith("/"):
+            path=path + "/"
             
         if self.subdir.isChecked():
             
@@ -139,8 +139,8 @@ class UI(QDialog):
         #Returns a list of all the files with a short name
         name_list_all=self.getlist_names(list_paths)
         
-        #Creates a list with the index of the clips selected by the user
-        index_list=hou.ui.selectFromList(name_list_all, exclusive=False, title='Select clips', column_header="Clips", num_visible_rows=10, clear_on_cancel=False)
+        #Creates a list with the index of the files selected by the user
+        index_list=hou.ui.selectFromList(name_list_all, exclusive=False, title='Select files', column_header="Files", num_visible_rows=10, clear_on_cancel=False)
         
         if not index_list:
             empty=1
@@ -148,12 +148,12 @@ class UI(QDialog):
         chosen_files=[]
         name_list=[]
         
-        #Creates a new name list with just the clips selected from the user 
+        #Creates a new name list with just the files selected from the user 
         for j in index_list:
         
             name_list.append(name_list_all[j])
 
-        #Creates a new list with just the clips selected from the user 
+        #Creates a new list with just the files selected from the user 
         for x in index_list:
         
             chosen_files.append(list_paths[x])
