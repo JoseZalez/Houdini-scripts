@@ -60,6 +60,34 @@ If you select to convert the clips to In-Place remember to select a *Locomotion 
 
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/import_agent_clip.png)
 
+# Batch change path top $HIP
+
+Simple script to change your path to $HIP given a drive letter and a folder name
+
+```
+keyword = "HIP_FOLDER_NAME" #"explosion" for example
+drive = "Drive letter" #"D:" for example
+
+nodes = hou.node("/").allSubChildren()
+
+
+tempPath = ""
+
+for node in nodes:
+
+    parms = node.parms()
+
+    for x in parms:
+        if x.parmTemplate().type().name() == "String":
+        
+            tempPath = x.eval()
+
+            if tempPath.startswith(drive):
+                                    
+                x.set("$HIP"+tempPath.split(keyword)[1])
+                
+```
+
 # Principal shader from path
 
 Given a path with the textures, creates a principal shader with all the images connected to their respective inputs including displacement, bump and normal maps. 
@@ -96,4 +124,6 @@ Connect your points to the *Input_points wrangle* and visualize the *compile_end
 ### Reminder
 
 For now please always use percentages that add up to 100% to get the desired results.
+
+
 
