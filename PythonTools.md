@@ -60,7 +60,7 @@ If you select to convert the clips to In-Place remember to select a *Locomotion 
 
 ![alt tag](https://raw.githubusercontent.com/JoseZalez/Houdini-scripts/master/images_examples/import_agent_clip.png)
 
-# Batch change path top $HIP
+# Batch change paths
 
 Simple script to change your path to $HIP given a drive letter and a folder name
 
