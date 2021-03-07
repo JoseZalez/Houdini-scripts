@@ -108,7 +108,7 @@
 
 ## Use .chan camera data
 
-To use .chan files automatically create a chop network, load the .chan with a file node, use an export node with the export flag on, set the channels you want to load in as "chan[1-6]" foe example, the camera node in the node paramenter and the attrbiutes in order they were written in the .chan file "t[xyz] r[xyz]" foe example.
+To use .chan files automatically create a chop network, load the .chan with a file node, use an export node with the export flag on, set the channels you want to load in as "chan[1-6]" for example, the camera node in the node parameter and the attributes in order they were written in the .chan file "t[xyz] r[xyz]" ,for example.
 
 ## Get min max 
 
