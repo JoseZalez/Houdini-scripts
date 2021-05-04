@@ -12,6 +12,11 @@
   
   as setattribtypeinfo(0, "point", "myVector", "point");  
   
+## Using abcframe in alembics 
+
+  When using the intrinsic attribute, always set the new time parameter to be a float (1.0 instead of 1 even when declaring it as a float) or the attribute wont work.
+
+
 ## Substeping
    
    Inside dops there are 3 ways of using substeps.
