@@ -1,10 +1,20 @@
-## Vector and 3 float
+## Vector types and 3 float
 
-  There are different types of vectors type, a vector can be a point vector, which is transformed and rotated, 
-  normal, which can only be rotated, color or none, which ar neither transformed or rotated. There are a lot more types.
+  There are different types of float3 vectors, the most commons types are:
   
-  Attributes like position are stored as point, and vectors as rest are stored as none since we dont want the values to change.
-  Vectors are modified by transforms, 3 floats are not.
+  -Point: Stores position data, affected by transformations, scales, and rotations
+  
+  -Vector: Used for storing fixed values as V, affected by scales and rotations, not transformations
+  
+  -Normal: Only affected by rotations (and inverse-trasnpose scaling)
+  
+  -Color: Not affected by neither transformation or rotations
+  
+  -None: raw data, not affected by any transformation
+  
+  Depending on the software you want to export these too, Gaffer for example, attributes like P are stored as point, and vectors as rest are stored as vector since we dont want the values to update.
+  
+  Vectors are modified by transforms, 3 floats can be both transformed or not depending on the type we stated before.
   
   Theres more information [here](https://www.sidefx.com/docs/houdini/vex/functions/setattribtypeinfo.html)
   
